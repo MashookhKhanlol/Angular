@@ -1,4 +1,7 @@
-<h1>
-  {{title}}
-</h1>
-<button [style.background]="isActive ? 'green' : 'red'">CLICK ME!</button>
+<ul>
+  @for (user of userObj; track user;let i = $index) {
+    <li>{{user.name}} <button (click)="deleteUser(i)">Delete</button></li>
+  }
+</ul>
+
+<button (click) = "addNewUser()">Add new User</button>
