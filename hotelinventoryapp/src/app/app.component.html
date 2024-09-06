@@ -1,4 +1,4 @@
-<ul>
+<!-- <ul>
   @for (user of userObj; track user;let i = $index;let userCount = $count) {
     <li> {{userCount}} {{i}} {{user.name}} <button (click)="deleteUser(i)">Delete</button></li>
   }
@@ -7,4 +7,6 @@
   }
 </ul>
 
-<button (click) = "addNewUser()">Add new User</button>
+<button (click) = "addNewUser()">Add new User</button> -->
+<h1>{{postTitle}}</h1>
+<app-posts-list [appPostListTitle] = "postTitle"></app-posts-list>
