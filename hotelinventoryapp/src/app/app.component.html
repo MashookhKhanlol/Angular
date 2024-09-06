@@ -1,6 +1,9 @@
 <ul>
-  @for (user of userObj; track user;let i = $index) {
-    <li>{{user.name}} <button (click)="deleteUser(i)">Delete</button></li>
+  @for (user of userObj; track user;let i = $index;let userCount = $count) {
+    <li> {{userCount}} {{i}} {{user.name}} <button (click)="deleteUser(i)">Delete</button></li>
+  }
+  @empty {
+    <p>The user count is empty</p>
   }
 </ul>
 
