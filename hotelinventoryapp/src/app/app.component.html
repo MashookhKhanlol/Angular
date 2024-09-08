@@ -8,5 +8,7 @@
 </ul>
 
 <button (click) = "addNewUser()">Add new User</button> -->
-<h1>{{postTitle}}</h1>
-<app-posts-list [appPostListTitle] = "postTitle"></app-posts-list>
+<h1>{{postTitle}} (APP)</h1>
+<app-posts-list [appPostListTitle] = "postTitle"  (messageEvent)="recieveMessage($event)"></app-posts-list>
+
+<!-- <h2>{{ message }}</h2> -->

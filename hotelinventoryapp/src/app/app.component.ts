@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , ViewChild , AfterViewInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AppNavbar } from './navbar/navbar.component';
 import { AppHeader } from './header/header.component';
@@ -12,7 +12,7 @@ import { PostsListComponent } from './posts-list/posts-list.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
   // title = 'hotelinventoryapp';
   // isActive : boolean = true
   // username : string = "John Doe"
@@ -38,7 +38,23 @@ export class AppComponent {
   //   this.userObj.splice(index,1);
   // }
 
-  isLoggedIn : boolean = true;
+  message : string = '';
+  @ViewChild(PostsListComponent) childMessage : any; 
 
-  postTitle : string = "Post 1";
+  constructor(){
+    console.log(this.childMessage);
+  }
+
+  ngAfterViewInit(){
+      console.log(this.childMessage)
+      this.message = this.childMessage.childMessage;
+  }
+
+  recieveMessage(message : string){
+    console.log(message)
+  }
+
+    isLoggedIn : boolean = true;
+
+    postTitle : string = "Post 1";
 }

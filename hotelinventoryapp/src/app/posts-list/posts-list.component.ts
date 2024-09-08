@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input , Output , EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-posts-list',
@@ -8,5 +8,16 @@ import { Component, Input } from '@angular/core';
   styleUrl: './posts-list.component.scss'
 })
 export class PostsListComponent {
+
+  childMessage : string = "Hello from child component";
+  postCount : number = 0
+  parentMessage : string = "Message from the child using click event"
   @Input() appPostListTitle : string ='';
+  @Output() messageEvent = new EventEmitter()
+  
+
+  buttonClicked(){
+    console.log("button clicked");
+    this.messageEvent.emit(this.parentMessage);
+  }
 }
